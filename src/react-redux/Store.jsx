@@ -2,14 +2,15 @@ import { legacy_createStore as createStore } from "redux";
 import { applyMiddleware , compose } from "redux";
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
-import sessionStorage from "redux-persist/es/storage/session";
+// import sessionStorage from "redux-persist/es/storage/session";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
+import localStorage from "redux-persist/es/storage";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const persistconfig ={
     key:"root",
-    storage:sessionStorage
+    storage: localStorage
 }
 
 const persistreducer = persistReducer(persistconfig, rootReducer)
